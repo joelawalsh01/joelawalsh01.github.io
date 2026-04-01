@@ -1,0 +1,415 @@
+/* ==========================================================================
+   Shadowrun Highland Park — Override Stylesheet
+   Dark urban palette pulled from the banner art: deep blue-grays,
+   cyan/teal accents, warm amber secondaries, monospace type.
+   ========================================================================== */
+
+/* --- Design Tokens --- */
+:root {
+  --bg-primary: #12151c;        /* deep night sky */
+  --bg-surface: #1a1e28;        /* dark panel / card */
+  --bg-header: #0b0d12;         /* near-black */
+  --accent: #4ecdc4;            /* cyberpunk teal */
+  --accent-hover: #3bb8b0;      /* deeper teal */
+  --accent-warm: #e8a030;       /* neon sign amber */
+  --accent-warm-hover: #d4912a;
+  --accent-pink: #c86090;       /* neon pink (sparingly) */
+  --text-primary: #c8cdd5;      /* cool light gray */
+  --text-secondary: #7a8290;    /* muted blue-gray */
+  --text-heading: #e8ecf2;      /* bright near-white */
+  --border-default: #2a2f3a;    /* subtle dark border */
+  --border-hover: #3d4455;      /* lighter border on hover */
+  --glow-teal: rgba(78, 205, 196, 0.15);
+  --glow-teal-strong: rgba(78, 205, 196, 0.25);
+}
+
+/* --- Base / Body --- */
+body {
+  background: var(--bg-primary) !important;
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary);
+  font-family: "Computer Modern Typewriter", "CMU Typewriter Text", "Courier New", monospace;
+}
+
+body, input, select, textarea {
+  font-family: "Computer Modern Typewriter", "CMU Typewriter Text", "Courier New", monospace;
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+strong, b {
+  color: var(--text-heading);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-heading);
+  font-family: "Computer Modern Typewriter", "CMU Typewriter Text", "Courier New", monospace;
+}
+
+/* --- Selection --- */
+::selection {
+  background: rgba(78, 205, 196, 0.3);
+  color: #fff;
+}
+
+::-moz-selection {
+  background: rgba(78, 205, 196, 0.3);
+  color: #fff;
+}
+
+/* --- Header --- */
+#header {
+  background: var(--bg-header);
+}
+
+#header > .logo {
+  color: var(--accent);
+  font-family: "Computer Modern Typewriter", "CMU Typewriter Text", "Courier New", monospace;
+}
+
+#header > nav > a {
+  color: var(--text-secondary);
+  font-family: "Computer Modern Typewriter", "CMU Typewriter Text", "Courier New", monospace;
+}
+
+#header > nav > a:hover {
+  color: var(--accent);
+}
+
+#header > nav > a + a[href="#menu"]:last-child {
+  border-left-color: var(--border-default);
+}
+
+/* --- Off-canvas Menu --- */
+#menu {
+  background-color: var(--bg-header);
+  color: var(--text-primary);
+}
+
+#menu a {
+  color: var(--accent);
+}
+
+#menu a:hover {
+  color: var(--accent-warm);
+}
+
+#menu .links li a {
+  border-top-color: var(--border-default);
+}
+
+#menu .close {
+  color: var(--text-secondary);
+}
+
+/* --- Banner --- */
+#banner {
+  background-color: #0e1018 !important;
+  background-image: url("../../images/highland_park_banner.png") !important;
+  background-size: 100% auto !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  color: rgba(232, 236, 242, 0.9);
+  position: relative;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 3168 / 1344;
+}
+
+/* Light overlay — let the art breathe */
+#banner:after {
+  background: rgba(11, 13, 18, 0.1) !important;
+  opacity: 1 !important;
+}
+
+/* Name bar below the banner art */
+#name-bar {
+  background: linear-gradient(
+    to right,
+    rgba(11, 13, 18, 0.95) 0%,
+    rgba(11, 13, 18, 0.7) 40%,
+    rgba(11, 13, 18, 0) 75%
+  );
+  background-color: var(--bg-primary);
+  padding: 1.25rem 2.5rem;
+  text-align: left;
+}
+
+#name-bar h1 {
+  font-size: 1.6rem;
+  margin: 0 0 0.3rem 0;
+  color: var(--text-heading);
+}
+
+#name-bar p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media screen and (max-width: 736px) {
+  #banner {
+    aspect-ratio: 3168 / 1344;
+  }
+  #name-bar {
+    padding: 0.75rem 1rem;
+  }
+  #name-bar h1 {
+    font-size: 1.2rem;
+  }
+  #name-bar p {
+    font-size: 0.8rem;
+  }
+}
+
+#banner a {
+  color: var(--accent);
+}
+
+#banner input[type="submit"],
+#banner input[type="reset"],
+#banner input[type="button"],
+#banner button,
+#banner .button {
+  box-shadow: inset 0 0 0 1px var(--accent);
+  color: var(--accent) !important;
+}
+
+#banner input[type="submit"]:hover,
+#banner input[type="reset"]:hover,
+#banner input[type="button"]:hover,
+#banner button:hover,
+#banner .button:hover {
+  box-shadow: inset 0 0 0 1px var(--accent-hover);
+  color: var(--accent-hover) !important;
+  background-color: var(--glow-teal);
+}
+
+#banner .button.primary,
+#banner button.primary {
+  background-color: var(--accent);
+  color: var(--bg-primary) !important;
+  box-shadow: none;
+}
+
+#banner .button.primary:hover,
+#banner button.primary:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --- Heading (subpages) --- */
+#heading {
+  background-color: var(--bg-header) !important;
+  background-image: url("../../images/highland_park_banner.png") !important;
+  background-size: cover !important;
+  background-position: center 25% !important;
+}
+
+#heading:after {
+  background: rgba(11, 13, 18, 0.7) !important;
+  opacity: 1 !important;
+}
+
+#heading h1 {
+  color: var(--text-heading);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Wrapper / Sections --- */
+.wrapper {
+  background: var(--bg-primary);
+}
+
+/* --- Special headers --- */
+header.special p {
+  color: var(--text-secondary);
+}
+
+.special p {
+  color: var(--text-secondary);
+}
+
+/* --- Highlight Cards --- */
+.highlights .content {
+  background: var(--bg-surface);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-default);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.highlights .content:hover {
+  box-shadow: 0 0 20px var(--glow-teal), 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.highlights .content .icon {
+  color: var(--accent);
+}
+
+.highlights .content h3 {
+  color: var(--text-heading);
+}
+
+.highlights .content p {
+  color: var(--text-secondary);
+}
+
+/* --- Buttons (global) --- */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+.button {
+  box-shadow: inset 0 0 0 1px var(--accent);
+  color: var(--accent) !important;
+  font-family: "Computer Modern Typewriter", "CMU Typewriter Text", "Courier New", monospace;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+button:hover,
+.button:hover {
+  box-shadow: inset 0 0 0 1px var(--accent-hover);
+  color: var(--accent-hover) !important;
+  background-color: var(--glow-teal);
+}
+
+input[type="submit"]:hover:active,
+input[type="reset"]:hover:active,
+input[type="button"]:hover:active,
+button:hover:active,
+.button:hover:active {
+  background-color: var(--glow-teal-strong);
+}
+
+input[type="submit"].primary,
+input[type="reset"].primary,
+input[type="button"].primary,
+button.primary,
+.button.primary {
+  box-shadow: none;
+  background-color: var(--accent);
+  color: var(--bg-primary) !important;
+}
+
+input[type="submit"].primary:hover,
+input[type="reset"].primary:hover,
+input[type="button"].primary:hover,
+button.primary:hover,
+.button.primary:hover {
+  background-color: var(--accent-hover);
+  box-shadow: none;
+}
+
+/* --- Footer --- */
+#footer, footer {
+  background-color: var(--bg-header);
+  color: var(--text-secondary);
+}
+
+#footer a, footer a {
+  color: var(--accent);
+}
+
+#footer a:hover, footer a:hover {
+  color: var(--accent-warm);
+}
+
+#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6,
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+  color: var(--text-heading);
+}
+
+#footer .button,
+footer .button {
+  box-shadow: inset 0 0 0 1px var(--accent);
+  color: var(--accent) !important;
+}
+
+#footer .button:hover,
+footer .button:hover {
+  box-shadow: inset 0 0 0 1px var(--accent-warm);
+  color: var(--accent-warm) !important;
+}
+
+#footer .button.primary,
+footer .button.primary {
+  background-color: var(--accent);
+  color: var(--bg-primary) !important;
+  box-shadow: none;
+}
+
+/* --- Form Inputs --- */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+input[type="url"],
+select,
+textarea {
+  background-color: var(--bg-surface);
+  border-color: var(--border-default);
+  color: var(--text-primary);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="search"]:focus,
+input[type="url"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 0 8px var(--glow-teal);
+}
+
+label {
+  color: var(--text-heading);
+}
+
+/* --- Lists in footer --- */
+ul.plain li a {
+  color: var(--accent);
+}
+
+ul.plain li a:hover {
+  color: var(--accent-warm);
+}
+
+/* --- #main content sections --- */
+#main .content {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* --- Misc / CTA sections --- */
+section.wrapper.style1 {
+  background: var(--bg-surface);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
