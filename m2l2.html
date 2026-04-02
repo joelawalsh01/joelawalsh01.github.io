@@ -1,239 +1,403 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>M2L2 - Multimodal and Multilingual Learning Technologies Lab</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="M2L2 - Multimodal and Multilingual Learning Technologies Lab" />
-		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/overrides.css" />
-		<style>
-			.m2l2-nav {
-				display: flex;
-				justify-content: center;
-				gap: 2em;
-				margin: 2em 0;
-				flex-wrap: wrap;
-			}
-			.m2l2-nav a {
-				padding: 0.5em 1.5em;
-				border: 2px solid #2a2f3a;
-				border-radius: 4px;
-				text-decoration: none;
-				font-weight: bold;
-				color: #4ecdc4;
-				transition: all 0.3s ease;
-			}
-			.m2l2-nav a:hover,
-			.m2l2-nav a.active {
-				background: rgba(78, 205, 196, 0.1);
-				border-color: #4ecdc4;
-				color: #4ecdc4;
-				box-shadow: 0 0 10px rgba(78, 205, 196, 0.15);
-			}
-			.lab-section {
-				margin-bottom: 3em;
-			}
-			.member-card {
-				display: flex;
-				gap: 2em;
-				align-items: flex-start;
-				margin-bottom: 2em;
-				padding: 1.5em;
-				background: #1a1e28;
-				border: 1px solid #2a2f3a;
-				border-radius: 8px;
-				flex-wrap: wrap;
-			}
-			.member-card img {
-				width: 180px;
-				height: 180px;
-				object-fit: cover;
-				border-radius: 50%;
-				border: 3px solid rgba(78, 205, 196, 0.4);
-				box-shadow: 0 0 10px rgba(78, 205, 196, 0.1);
-				flex-shrink: 0;
-			}
-			.member-info {
-				flex: 1;
-				min-width: 250px;
-			}
-			.member-info h3 {
-				margin-bottom: 0.25em;
-			}
-			.member-info .affiliation {
-				color: #7a8290;
-				font-style: italic;
-				margin-bottom: 1em;
-			}
-			.member-placeholder {
-				display: flex;
-				gap: 1.5em;
-				align-items: center;
-				margin-bottom: 1.5em;
-				padding: 1em;
-				background: #1a1e28;
-				border-radius: 8px;
-				border-left: 4px solid #2a2f3a;
-			}
-			.member-placeholder .placeholder-img {
-				width: 80px;
-				height: 80px;
-				background: #2a2f3a;
-				border-radius: 50%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-size: 2em;
-				color: #7a8290;
-				flex-shrink: 0;
-			}
-			.project-card {
-				padding: 1.5em;
-				margin-bottom: 1.5em;
-				background: #1a1e28;
-				border: 1px solid #2a2f3a;
-				border-radius: 8px;
-				border-left: 4px solid #4ecdc4;
-			}
-			.project-card h4 {
-				margin-bottom: 0.5em;
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M2L2 - Multimodal and Multilingual Learning Technologies Lab</title>
+	<meta name="description" content="M2L2 - Multimodal and Multilingual Learning Technologies Lab at Occidental College">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+	<style>
+		/* --- Reset & Base --- */
+		*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-		<!-- Header -->
-			<header id="header">
-				<a class="logo" href="index.html"></a>
-				<nav>
-					<a href="#menu">Menu</a>
-				</nav>
-			</header>
+		:root {
+			--blue: #3a7bd5;
+			--blue-light: #e8f0fe;
+			--warm: #e8924a;
+			--warm-light: #fef3e8;
+			--text: #2d3748;
+			--text-light: #64748b;
+			--bg: #fafbfd;
+			--white: #ffffff;
+			--border: #e2e8f0;
+			--radius: 12px;
+		}
 
-		<!-- Nav -->
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="m2l2.html">M2L2 Lab</a></li>
-				</ul>
-			</nav>
+		body {
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+			color: var(--text);
+			background: var(--bg);
+			line-height: 1.6;
+			-webkit-font-smoothing: antialiased;
+		}
 
-		<!-- Banner -->
-			<section id="banner">
-			</section>
+		/* --- Top Nav --- */
+		.top-bar {
+			background: var(--white);
+			border-bottom: 1px solid var(--border);
+			padding: 0.6rem 2rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: sticky;
+			top: 0;
+			z-index: 100;
+		}
 
-		<!-- Name Bar -->
-			<div id="name-bar">
-				<div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-					<img src="images/m2l2_logo.png" alt="M2L2 Lab Logo" style="height: 100px; width: auto;">
-					<div>
-						<h1>M2L2</h1>
-						<p>Multimodal and Multilingual Learning Technologies Lab</p>
-					</div>
+		.top-bar a {
+			color: var(--blue);
+			text-decoration: none;
+			font-size: 0.85rem;
+			font-weight: 500;
+		}
+
+		.top-bar a:hover {
+			color: var(--warm);
+		}
+
+		/* --- Banner --- */
+		.banner {
+			background: linear-gradient(135deg, var(--blue-light) 0%, var(--warm-light) 50%, var(--bg) 100%);
+			text-align: center;
+			padding: 3rem 2rem 2rem;
+		}
+
+		.banner img {
+			height: 140px;
+			width: auto;
+			margin-bottom: 1rem;
+		}
+
+		.banner h1 {
+			font-family: 'Source Serif 4', Georgia, serif;
+			font-size: 2rem;
+			font-weight: 600;
+			color: var(--text);
+			margin-bottom: 0.4rem;
+		}
+
+		.banner p {
+			font-size: 1.05rem;
+			color: var(--text-light);
+			font-weight: 300;
+		}
+
+		/* --- Tab Navigation --- */
+		.tab-nav {
+			display: flex;
+			justify-content: center;
+			gap: 0.5rem;
+			padding: 1.25rem 1rem;
+			background: var(--white);
+			border-bottom: 1px solid var(--border);
+			flex-wrap: wrap;
+			position: sticky;
+			top: 44px;
+			z-index: 99;
+		}
+
+		.tab-btn {
+			padding: 0.55rem 1.4rem;
+			border: 1.5px solid var(--border);
+			border-radius: 24px;
+			background: var(--white);
+			color: var(--text-light);
+			font-family: 'Inter', sans-serif;
+			font-size: 0.85rem;
+			font-weight: 500;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+
+		.tab-btn:hover {
+			border-color: var(--blue);
+			color: var(--blue);
+			background: var(--blue-light);
+		}
+
+		.tab-btn.active {
+			background: var(--blue);
+			color: var(--white);
+			border-color: var(--blue);
+		}
+
+		/* --- Content Panels --- */
+		.content-area {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 2.5rem 1.5rem 4rem;
+		}
+
+		.tab-panel {
+			display: none;
+			animation: fadeIn 0.3s ease;
+		}
+
+		.tab-panel.active {
+			display: block;
+		}
+
+		@keyframes fadeIn {
+			from { opacity: 0; transform: translateY(8px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+
+		.tab-panel h2 {
+			font-family: 'Source Serif 4', Georgia, serif;
+			font-size: 1.6rem;
+			font-weight: 600;
+			margin-bottom: 1.25rem;
+			color: var(--text);
+		}
+
+		.tab-panel p {
+			margin-bottom: 1rem;
+			color: var(--text);
+			line-height: 1.7;
+		}
+
+		/* --- Member Cards --- */
+		.section-label {
+			font-size: 0.75rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			color: var(--text-light);
+			margin-bottom: 1rem;
+			padding-bottom: 0.5rem;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.member-card {
+			display: flex;
+			gap: 1.5rem;
+			align-items: flex-start;
+			padding: 1.5rem;
+			background: var(--white);
+			border: 1px solid var(--border);
+			border-radius: var(--radius);
+			margin-bottom: 1.5rem;
+			flex-wrap: wrap;
+		}
+
+		.member-card img {
+			width: 120px;
+			height: 120px;
+			object-fit: cover;
+			border-radius: 50%;
+			border: 3px solid var(--blue-light);
+			flex-shrink: 0;
+		}
+
+		.member-info {
+			flex: 1;
+			min-width: 220px;
+		}
+
+		.member-info h3 {
+			font-size: 1.1rem;
+			font-weight: 600;
+			margin-bottom: 0.25rem;
+		}
+
+		.member-info .affiliation {
+			color: var(--text-light);
+			font-size: 0.9rem;
+			font-style: italic;
+			margin-bottom: 0.75rem;
+			line-height: 1.5;
+		}
+
+		.member-info p {
+			font-size: 0.95rem;
+		}
+
+		/* --- Project Cards --- */
+		.project-card {
+			padding: 1.25rem 1.5rem;
+			background: var(--white);
+			border: 1px solid var(--border);
+			border-left: 4px solid var(--warm);
+			border-radius: var(--radius);
+			margin-bottom: 1rem;
+		}
+
+		.project-card h4 {
+			font-size: 1rem;
+			font-weight: 600;
+			margin-bottom: 0.4rem;
+		}
+
+		.project-card p {
+			font-size: 0.9rem;
+			color: var(--text-light);
+		}
+
+		/* --- Contact --- */
+		.contact-list {
+			list-style: none;
+			padding: 0;
+		}
+
+		.contact-list li {
+			padding: 0.6rem 0;
+			border-bottom: 1px solid var(--border);
+			font-size: 0.95rem;
+		}
+
+		.contact-list li:last-child {
+			border-bottom: none;
+		}
+
+		.contact-list a {
+			color: var(--blue);
+			text-decoration: none;
+		}
+
+		.contact-list a:hover {
+			text-decoration: underline;
+		}
+
+		/* --- Note / Placeholder --- */
+		.note {
+			color: var(--text-light);
+			font-style: italic;
+			padding: 1rem 1.25rem;
+			background: var(--blue-light);
+			border-radius: var(--radius);
+			font-size: 0.9rem;
+		}
+
+		.note a {
+			color: var(--blue);
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		/* --- Footer --- */
+		.site-footer {
+			text-align: center;
+			padding: 2rem;
+			color: var(--text-light);
+			font-size: 0.8rem;
+			border-top: 1px solid var(--border);
+		}
+
+		.site-footer a {
+			color: var(--blue);
+			text-decoration: none;
+		}
+
+		/* --- Responsive --- */
+		@media (max-width: 600px) {
+			.banner { padding: 2rem 1rem 1.5rem; }
+			.banner img { height: 100px; }
+			.banner h1 { font-size: 1.5rem; }
+			.tab-nav { gap: 0.35rem; padding: 0.75rem 0.5rem; }
+			.tab-btn { padding: 0.45rem 1rem; font-size: 0.8rem; }
+			.member-card img { width: 90px; height: 90px; }
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Top Bar -->
+	<nav class="top-bar">
+		<a href="index.html">&larr; Joel Walsh</a>
+		<a href="mailto:jwalsh2@oxy.edu">jwalsh2@oxy.edu</a>
+	</nav>
+
+	<!-- Banner -->
+	<header class="banner">
+		<img src="images/m2l2_logo.png" alt="M2L2 Lab Logo">
+		<h1>M2L2</h1>
+		<p>Multimodal and Multilingual Learning Technologies Lab</p>
+	</header>
+
+	<!-- Tab Navigation -->
+	<nav class="tab-nav">
+		<button class="tab-btn active" data-tab="about">About</button>
+		<button class="tab-btn" data-tab="members">Members</button>
+		<button class="tab-btn" data-tab="projects">Projects</button>
+		<button class="tab-btn" data-tab="contact">Contact</button>
+	</nav>
+
+	<!-- Content -->
+	<main class="content-area">
+
+		<!-- About -->
+		<div id="about" class="tab-panel active">
+			<h2>About</h2>
+			<p>The Multimodal and Multilingual Learning Technologies Lab (M2L2) is dedicated to advancing research at the intersection of artificial intelligence, natural language processing, and education. Our work focuses on building learning technologies that are informed by education research and designed to serve diverse, multilingual communities.</p>
+			<p>We develop tools and systems that leverage multimodal data — text, speech, images, and interaction patterns — to create more effective and inclusive educational experiences. Our research aims to facilitate access to emerging technologies and STEM education for historically underrepresented communities.</p>
+		</div>
+
+		<!-- Members -->
+		<div id="members" class="tab-panel">
+			<h2>Members &amp; Affiliated Researchers</h2>
+
+			<p class="section-label">Lab Director</p>
+			<div class="member-card">
+				<img src="images/joel_walsh_headshot.jpg" alt="Dr. Joel A. Walsh">
+				<div class="member-info">
+					<h3>Dr. Joel A. Walsh</h3>
+					<p class="affiliation">
+						Assistant Professor of Computer Science<br>
+						Occidental College · Los Angeles, CA
+					</p>
+					<p>[Bio coming soon]</p>
 				</div>
 			</div>
 
-		<!-- Lab Navigation -->
-			<section class="wrapper">
-				<div class="inner">
-					<div class="m2l2-nav">
-						<a href="#about" class="active">About</a>
-						<a href="#members">Members &amp; Affiliated Researchers</a>
-						<a href="#projects">Projects</a>
-						<a href="#contact">Contact</a>
-					</div>
-				</div>
-			</section>
+			<p class="section-label">Lab Members</p>
+			<p class="note">New members welcome — see <a href="#" onclick="switchTab('contact'); return false;">Contact</a> for how to get involved.</p>
 
-		<!-- About Section -->
-			<section id="about" class="wrapper">
-				<div class="inner">
-					<div class="content lab-section">
-						<h2>About</h2>
-						<p>The Multimodal and Multilingual Learning Technologies Lab (M2L2) is dedicated to advancing research at the intersection of artificial intelligence, natural language processing, and education. Our work focuses on building learning technologies that are informed by education research and designed to serve diverse, multilingual communities.</p>
-						<p>We develop tools and systems that leverage multimodal data — text, speech, images, and interaction patterns — to create more effective and inclusive educational experiences. Our research aims to facilitate access to emerging technologies and STEM education for historically underrepresented communities.</p>
-					</div>
-				</div>
-			</section>
+			<br>
+			<p class="section-label">Affiliated Researchers</p>
+			<p class="note">Affiliations coming soon.</p>
+		</div>
 
-		<!-- Members Section -->
-			<section id="members" class="wrapper">
-				<div class="inner">
-					<div class="content lab-section">
-						<h2>Members &amp; Affiliated Researchers</h2>
+		<!-- Projects -->
+		<div id="projects" class="tab-panel">
+			<h2>Projects</h2>
+			<p class="note">Project listings coming soon.</p>
+		</div>
 
-						<!-- Lab Director -->
-						<h3 style="margin-bottom: 1em; border-bottom: 2px solid #2a2f3a; padding-bottom: 0.5em;">Lab Director</h3>
-						<div class="member-card">
-							<img src="images/joel_walsh_headshot.jpg" alt="Dr. Joel A. Walsh">
-							<div class="member-info">
-								<h3>Dr. Joel A. Walsh</h3>
-								<p class="affiliation">
-									Assistant Professor of Computer Science<br>
-									Occidental College<br>
-									Los Angeles, CA
-								</p>
-								<p>[Bio coming soon]</p>
-							</div>
-						</div>
+		<!-- Contact -->
+		<div id="contact" class="tab-panel">
+			<h2>Contact</h2>
+			<p>Interested in our research or joining the lab? Get in touch.</p>
+			<ul class="contact-list">
+				<li><strong>Email:</strong> <a href="mailto:jwalsh2@oxy.edu">jwalsh2@oxy.edu</a></li>
+				<li><strong>Location:</strong> Occidental College, Los Angeles, CA</li>
+			</ul>
+		</div>
 
-						<!-- Members -->
-						<h3 style="margin-bottom: 1em; border-bottom: 2px solid #2a2f3a; padding-bottom: 0.5em;">Lab Members</h3>
-						<p><em>New members welcome — see <a href="#contact">Contact</a> for how to get involved.</em></p>
+	</main>
 
-						<!-- Affiliated Researchers -->
-						<h3 style="margin-bottom: 1em; border-bottom: 2px solid #2a2f3a; padding-bottom: 0.5em;">Affiliated Researchers</h3>
-						<p><em>Affiliations coming soon.</em></p>
-					</div>
-				</div>
-			</section>
+	<!-- Footer -->
+	<footer class="site-footer">
+		<p>&copy; M2L2 Lab · Occidental College</p>
+	</footer>
 
-		<!-- Projects Section -->
-			<section id="projects" class="wrapper">
-				<div class="inner">
-					<div class="content lab-section">
-						<h2>Projects</h2>
-						<p><em>Project listings coming soon.</em></p>
+	<script>
+		function switchTab(tabId) {
+			document.querySelectorAll('.tab-btn').forEach(function(btn) {
+				btn.classList.toggle('active', btn.dataset.tab === tabId);
+			});
+			document.querySelectorAll('.tab-panel').forEach(function(panel) {
+				panel.classList.toggle('active', panel.id === tabId);
+			});
+		}
 
-						<!--
-						<div class="project-card">
-							<h4>Project Title</h4>
-							<p>Project description goes here.</p>
-						</div>
-						-->
-					</div>
-				</div>
-			</section>
+		document.querySelectorAll('.tab-btn').forEach(function(btn) {
+			btn.addEventListener('click', function() {
+				switchTab(this.dataset.tab);
+			});
+		});
+	</script>
 
-		<!-- Contact Section -->
-			<section id="contact" class="wrapper">
-				<div class="inner">
-					<div class="content lab-section">
-						<h2>Contact</h2>
-						<p>Interested in our research or joining the lab? Get in touch.</p>
-						<ul>
-							<li><strong>Email:</strong> <a href="mailto:jwalsh2@oxy.edu">jwalsh2@oxy.edu</a></li>
-							<li><strong>Location:</strong> Occidental College, Los Angeles, CA</li>
-						</ul>
-					</div>
-				</div>
-			</section>
-
-		<!-- Footer -->
-			<footer>
-				<div class="inner">
-					<p style="text-align: center;">&copy; M2L2 Lab. Design: <a href="https://templated.co">TEMPLATED</a>.</p>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>
