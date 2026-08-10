@@ -221,6 +221,25 @@
 			color: var(--text-light);
 		}
 
+		.project-card.publication {
+			border-left-color: var(--blue);
+		}
+
+		.project-card .meta {
+			font-size: 0.85rem;
+			font-style: italic;
+			margin-bottom: 0.4rem;
+		}
+
+		.project-card a {
+			color: var(--blue);
+			text-decoration: none;
+		}
+
+		.project-card a:hover {
+			text-decoration: underline;
+		}
+
 		/* --- Contact --- */
 		.contact-list {
 			list-style: none;
@@ -303,7 +322,7 @@
 	<nav class="tab-nav">
 		<button class="tab-btn active" data-tab="about">About</button>
 		<button class="tab-btn" data-tab="members">Members</button>
-		<button class="tab-btn" data-tab="projects">Projects</button>
+		<button class="tab-btn" data-tab="projects">Projects and Publications</button>
 		<button class="tab-btn" data-tab="contact">Contact</button>
 	</nav>
 
@@ -408,8 +427,21 @@
 
 		<!-- Projects -->
 		<div id="projects" class="tab-panel">
-			<h2>Projects</h2>
-			<p class="note">Project listings coming soon.</p>
+			<h2>Projects and Publications</h2>
+
+			<p class="section-label">Projects</p>
+			<div class="project-card">
+				<h4><a href="https://github.com/joelawalsh01/accommodation-buddy">Accommodation Buddy</a></h4>
+				<p>A web application that helps teachers adapt classroom materials for multilingual learners. Teachers upload documents (PDF, DOCX, PPTX, or images) and the system generates scaffolded language supports &mdash; sentence frames, vocabulary cards with heritage-language support, cognates, translations, and instructional strategies &mdash; calibrated to each student's ELPAC proficiency level (1&ndash;4). Built on FastAPI and PostgreSQL with local LLM inference via Ollama, so student documents never leave the school's own hardware. Open source under the MIT license.</p>
+			</div>
+
+			<br>
+			<p class="section-label">Publications</p>
+			<div class="project-card publication">
+				<h4><a href="https://ceur-ws.org/Vol-4231/">Mitigating the &ldquo;Triple Burden&rdquo;: Grade-Level Translation of Science Texts Using Multiagent Systems and Prompt Optimization</a></h4>
+				<p class="meta">Joel Walsh, Oscar Arenas, Ashley Marquez, Karina M&eacute;ndez P&eacute;rez, and Benjamin Nye &middot; Seventh International Workshop on Intelligent Textbooks (iTextbooks 2026), co-located with AIED 2026, Seoul, Republic of Korea</p>
+				<p>Multilingual students reading science texts in a second language carry a &ldquo;triple burden&rdquo;: new content, new academic vocabulary, and a new language all at once. This paper pairs a multiagent translation pipeline with prompt optimization to produce Spanish translations of science texts that are faithful to the source while landing at the reader's grade level, and evaluates the resulting grade-level alignment across 3rd- through 12th-grade material.</p>
+			</div>
 		</div>
 
 		<!-- Contact -->
